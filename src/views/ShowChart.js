@@ -9,13 +9,15 @@ function ShowChart(props) {
   // alert("show function is rendered !");
   console.log("show chart is called !");
   console.log("and the show chart value is " + props.value);
+  console.log(props.data);
+  // console.log("data: "+ props.data);
   // alert("the props value in show chart is " + option);
   if (props.value === "Bar Chart") {
     return <App />;
   } else if (props.value === "Radar Graph") {
     return <DifferentCharts />;
   } else if (props.value === "Pie Chart") {
-    return <PieChart />;
+    return <PieChart data={props.data}/>;
   }
   return <h1>hello showchart</h1>;
 }
