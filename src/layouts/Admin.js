@@ -23,12 +23,14 @@ import { Container } from "reactstrap";
 import AdminNavbar from "components/Navbars/AdminNavbar.js";
 import AdminFooter from "components/Footers/AdminFooter.js";
 import Sidebar from "components/Sidebar/Sidebar.js";
+import Index from "views/Index.js";
 
 import routes from "routes.js";
 
 const Admin = (props) => {
   const mainContent = React.useRef(null);
   const location = useLocation();
+  const [searchedData, setSearchedData] = React.useState();
 
   React.useEffect(() => {
     document.documentElement.scrollTop = 0;
@@ -64,6 +66,12 @@ const Admin = (props) => {
     return "Brand";
   };
 
+  const handleCallback = (searchData) =>{
+    // console.log(searchData);
+    // childRef.current.displayChart();
+    setSearchedData(searchData);
+  }
+
   return (
     <>
       <Sidebar
@@ -79,11 +87,13 @@ const Admin = (props) => {
         <AdminNavbar
           {...props}
           brandText={getBrandText(props.location.pathname)}
+          parentCallback = {handleCallback}
         />
-        <Switch>
+        {/* <Switch>
           {getRoutes(routes)}
-          <Redirect from="*" to="/admin/index" />
-        </Switch>
+          <Redirect from="*" to={{pathname: "/admin/index", data: "data recieved", ref : {childRef}}} />
+        </Switch> */}
+        <Index data={searchedData}/>
         <Container fluid>
           <AdminFooter />
         </Container>

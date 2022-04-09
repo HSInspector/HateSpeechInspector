@@ -19,11 +19,14 @@ import {
 import { useState } from "react";
 const AdminNavbar = (props) => {
   const [searchTerm, setSearchTerm] = useState("");
-
+  var [searchData, setSearchData] = useState()
   const handleChange = (event) => {
     setSearchTerm(event.target.value);
   };
-
+  const sendSearchedData = (data)=>{
+    // console.log(searchData);
+    props.parentCallback(data);
+  }
   const handleKeyDown = (e) => {
     
     if (e.key === "Enter") {
@@ -35,8 +38,14 @@ const AdminNavbar = (props) => {
         }),
       })
       .then((res) => {
-        return res.json().then((data) => console.log(data));
+
+        return res.json().then((data) => {
+          // console.log(data)
+          // this.setSearchData(data);
+          sendSearchedData(data);
+        });
       });
+      
       setSearchTerm("")
       e.preventDefault();
     }

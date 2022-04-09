@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect, useImperativeHandle } from "react";
 // node.js library that concatenates classes (strings)
 import classnames from "classnames";
 // javascipt plugin for creating charts
 import Chart from "chart.js";
 // react plugin used to create charts
 import { Line, Bar } from "react-chartjs-2";
+
 
 
 import ShowChart from "./ShowChart";
@@ -33,8 +34,28 @@ import {
 } from "variables/charts.js";
 
 import Header from "components/Headers/Header.js";
+import { forwardRef } from "react/cjs/react.production.min";
 
-const Index = (props) => {
+const Index =  (props) => {
+  // useEffect(() => {
+  //   props.location.childFunc.current = displayChart
+  // }, []);
+
+  // function displayChart(){
+  //   console.log(props.location.data)
+  // }
+  // useImperativeHandle(
+  //   props.location.ref,
+  //   () => ({
+  //     displayChart(){
+  //         console.log(props.location.data);
+  //       }
+  //   }),
+  // )
+  // function displayChart(){
+  //   console.log("props.location.data");
+  // };
+  // console.log(props.location.data);
   const [option, setOption] = useState("Bar Chart");
   const [Radar_graph, setRadar_graph] = useState("false");
 
@@ -119,11 +140,11 @@ const Index = (props) => {
           <option value="Radar Graph">Radar Graph</option>
         </select>
 
-        <Button onClick={handle_radarGraph}>Radar Graph</Button>
+        {/* <Button onClick={handle_radarGraph}>Radar Graph</Button> */}
 
         {/* <returnChart value={option} /> */}
         <div>
-          <ShowChart value={option} />
+          <ShowChart value={option} data={props.data}/>
         </div>
       </Container>
     </>

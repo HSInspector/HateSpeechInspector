@@ -1,6 +1,7 @@
 import React from "react";
 import DifferentCharts from "./DifferentCharts";
 import App from "./BarChart/App";
+
 function return_chart(props) {
   console.log("haye i am from return chart");
   console.log(props.value);
