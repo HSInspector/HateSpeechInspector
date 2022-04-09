@@ -93,7 +93,7 @@ const Admin = (props) => {
           {getRoutes(routes)}
           <Redirect from="*" to={{pathname: "/admin/index", data: "data recieved", ref : {childRef}}} />
         </Switch> */}
-        <Index data={searchedData}/>
+        <Index data={searchedData}/>   
         <Container fluid>
           <AdminFooter />
         </Container>
@@ -101,5 +101,7 @@ const Admin = (props) => {
     </>
   );
 };
+
+
 
 export default Admin;
