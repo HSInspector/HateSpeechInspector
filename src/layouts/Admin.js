@@ -31,6 +31,7 @@ const Admin = (props) => {
   const mainContent = React.useRef(null);
   const location = useLocation();
   const [searchedData, setSearchedData] = React.useState();
+  const [termSearched, setTermSearched] = React.useState(false);
 
   React.useEffect(() => {
     document.documentElement.scrollTop = 0;
@@ -67,9 +68,9 @@ const Admin = (props) => {
   };
 
   const handleCallback = (searchData) =>{
-    // console.log(searchData);
-    // childRef.current.displayChart();
     setSearchedData(searchData);
+    setTermSearched(true);
+    console.log("Data recieved");
   }
 
   return (
@@ -93,7 +94,7 @@ const Admin = (props) => {
           {getRoutes(routes)}
           <Redirect from="*" to={{pathname: "/admin/index", data: "data recieved", ref : {childRef}}} />
         </Switch> */}
-        <Index data={searchedData}/>   
+        <Index data={searchedData} termSearched={termSearched}/>   
         <Container fluid>
           <AdminFooter />
         </Container>

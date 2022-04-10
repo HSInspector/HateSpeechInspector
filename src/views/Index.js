@@ -56,8 +56,9 @@ const Index =  (props) => {
   //   console.log("props.location.data");
   // };
   // console.log(props.location.data);
-  const [option, setOption] = useState("Bar Chart");
+  const [option, setOption] = useState("None");
   const [Radar_graph, setRadar_graph] = useState("false");
+  
 
   function handle_radarGraph() {
     return !Radar_graph;
@@ -80,7 +81,7 @@ const Index =  (props) => {
   };
   return (
     <>
-      <Header />
+      <Header data={props.data} termSearched={props.termSearched}/>
       {/* Page content */}
       <Container className="mt--7" fluid>
         <Row>
@@ -135,6 +136,7 @@ const Index =  (props) => {
           }}
           // name="Select the chart"
         >
+          <option value="None">None</option>
           <option value="Pie Chart">Pie Chart</option>
           <option value="Bar Chart">Bar Chart</option>
           <option value="Radar Graph">Radar Graph</option>
@@ -144,7 +146,7 @@ const Index =  (props) => {
 
         {/* <returnChart value={option} /> */}
         <div>
-          <ShowChart value={option} data={props.data}/>
+          <ShowChart value={option} data={props.data} termSearched={props.termSearched}/>
         </div>
       </Container>
     </>

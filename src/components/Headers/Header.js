@@ -19,7 +19,8 @@
 // reactstrap components
 import { Card, CardBody, CardTitle, Container, Row, Col } from "reactstrap";
 
-const Header = () => {
+const Header = (props) => {
+  
   return (
     <>
       <div className="header bg-gradient-info pb-8 pt-5 pt-md-8">
@@ -36,10 +37,10 @@ const Header = () => {
                           tag="h5"
                           className="text-uppercase text-muted mb-0"
                         >
-                          Islamophobia
+                        Islamopho
                         </CardTitle>
                         <span className="h2 font-weight-bold mb-0">
-                          350,897
+                        1,123
                         </span>
                       </div>
                       <Col className="col-auto">

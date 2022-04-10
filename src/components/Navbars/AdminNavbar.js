@@ -40,8 +40,7 @@ const AdminNavbar = (props) => {
       .then((res) => {
 
         return res.json().then((data) => {
-          // console.log(data)
-          // this.setSearchData(data);
+
           sendSearchedData(data);
         });
       });
