@@ -31,7 +31,6 @@ const Admin = (props) => {
   const mainContent = React.useRef(null);
   const location = useLocation();
   const [searchedData, setSearchedData] = React.useState();
-  const [termSearched, setTermSearched] = React.useState(false);
 
   React.useEffect(() => {
     document.documentElement.scrollTop = 0;
@@ -64,13 +63,13 @@ const Admin = (props) => {
         return routes[i].name;
       }
     }
-    return "Brand";
+    return "DashBoard";
   };
 
   const handleCallback = (searchData) =>{
+    // console.log(searchData);
+    // childRef.current.displayChart();
     setSearchedData(searchData);
-    setTermSearched(true);
-    console.log("Data recieved");
   }
 
   return (
@@ -80,7 +79,7 @@ const Admin = (props) => {
         routes={routes}
         logo={{
           innerLink: "/admin/index",
-          imgSrc: require("../assets/img/brand/argon-react.png").default,
+          // imgSrc: require("../assets/img/brand/argon-react.png").default,
           imgAlt: "...",
         }}
       />
@@ -94,7 +93,7 @@ const Admin = (props) => {
           {getRoutes(routes)}
           <Redirect from="*" to={{pathname: "/admin/index", data: "data recieved", ref : {childRef}}} />
         </Switch> */}
-        <Index data={searchedData} termSearched={termSearched}/>   
+        <Index data={searchedData}/>   
         <Container fluid>
           <AdminFooter />
         </Container>

@@ -29,7 +29,7 @@ const Tables = () => {
       <Container className="mt--7" fluid>
         {/* Table */}
         <Row>
-          <div className="col">
+          {/* <div className="col">
             <Card className="shadow">
               <CardHeader className="border-0">
                 <h3 className="mb-0">Card tables</h3>
@@ -923,7 +923,7 @@ const Tables = () => {
                 </nav>
               </CardFooter>
             </Card>
-          </div>
+          </div> */}
         </Row>
         {/* Dark table */}
         <Row className="mt-5">

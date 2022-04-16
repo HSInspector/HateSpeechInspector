@@ -56,9 +56,8 @@ const Index =  (props) => {
   //   console.log("props.location.data");
   // };
   // console.log(props.location.data);
-  const [option, setOption] = useState("None");
+  const [option, setOption] = useState("Bar Chart");
   const [Radar_graph, setRadar_graph] = useState("false");
-  
 
   function handle_radarGraph() {
     return !Radar_graph;
@@ -81,13 +80,13 @@ const Index =  (props) => {
   };
   return (
     <>
-      <Header data={props.data} termSearched={props.termSearched}/>
+      <Header />
       {/* Page content */}
       <Container className="mt--7" fluid>
         <Row>
           <Col className="mb-5 mb-xl-0" xl="8"></Col>
           <Col xl="4">
-            <Card
+            {/* <Card
               style={{
                 alignItems: "left",
                 marginLeft: "20px",
@@ -114,7 +113,7 @@ const Index =  (props) => {
                   />
                 </div>
               </CardBody>
-            </Card>
+            </Card> */}
           </Col>
         </Row>
         <Row className="mt-5">
@@ -130,13 +129,19 @@ const Index =  (props) => {
           onChange={handleChange}
           placeholder="Select"
           style={{
+            height:"50px",
+            width:"150px",
             backgroundColor: "#0680F5",
             color: "#FFFF",
-            textDecoration: "bold"
+            // textDecoration: "bold",
+            paddingLeft:"25px",
+           marginTop:"100px",
+           marginLeft:"320px",
+           borderRadius:"10px",
+           marginBottom:"100px"
           }}
           // name="Select the chart"
         >
-          <option value="None">None</option>
           <option value="Pie Chart">Pie Chart</option>
           <option value="Bar Chart">Bar Chart</option>
           <option value="Radar Graph">Radar Graph</option>
@@ -146,7 +151,7 @@ const Index =  (props) => {
 
         {/* <returnChart value={option} /> */}
         <div>
-          <ShowChart value={option} data={props.data} termSearched={props.termSearched}/>
+          <ShowChart value={option} data={props.data}/>
         </div>
       </Container>
     </>
