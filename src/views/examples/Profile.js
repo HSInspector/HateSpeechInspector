@@ -27,14 +27,14 @@ const Profile = () => {
                 <Col className="order-lg-2" lg="3">
                   <div className="card-profile-image">
                     <a href="#pablo" onClick={(e) => e.preventDefault()}>
-                      <img
+                      {/* <img
                         alt="..."
                         className="rounded-circle"
                         src={
                           require("../../assets/img/theme/team-4-800x800.jpg")
                             .default
                         }
-                      />
+                      /> */}
                     </a>
                   </div>
                 </Col>
@@ -42,19 +42,20 @@ const Profile = () => {
               {/*  */}
             </Card>
           </Col>
-          <Col className="order-xl-1" xl="8">
+          <Col className="order-xl-1" xl="12">
             <Card className="bg-secondary shadow">
               <CardBody>
                 <Form>
                   <div className="pl-lg-4">
-                    <Row>
+                    <Row style={{paddingLeft:"300px",background:"lightblue"}}>
                       <Col lg="6">
                         <FormGroup>
                           <label
                             className="form-control-label"
                             htmlFor="input-username"
+                            style={{paddingLeft:"150px"}}
                           >
-                            Username
+                            <h2><b>Username</b></h2>
                           </label>
                           <Input
                             className="form-control-alternative"

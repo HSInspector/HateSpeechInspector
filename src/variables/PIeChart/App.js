@@ -14,15 +14,49 @@ function App(x) {
   var No_Hate = 0;
 
   var data01 = [
-    { name: "No Hate", value: 0 },
-    { name: "General Hate", value: 0 },
-    { name: "Racism", value: 0 },
-    { name: "Sexism", value: 0 },
-    { name: "Islamophobia", value: 0 }
+    { name: "No Hate", value: 278 },
+    { name: "General Hate", value: 200 },
+    { name: "Racism", value: 400 },
+    { name: "Sexism", value: 300 },
+    { name: "Islamophobia", value: 300 }
   
   
   ];
-  var data02 = x.data;
+  var data02 ={ "tweets": ["hot souce hello future glitch mode #shopeeundangnctdream #nantikanbrstvshow #nctzenxsobatshopee 1542"
+  , "20220409 fan weibo update 10p (1/3) hello, zhang yixing cr. rose10_forlay #layzhang #lay #yixing #장이씽 #레이 #レイ #อี้ชิง #ييشينغ #张艺兴 #ییشینگ "
+  , "hello interested po, consider me. i can send samples in dm."
+  , "hello pot- tagsen hihnvadestrinoma #virtualassemblydonbelle"
+  ,"hello! this is a fan acc but i want to use it right now. kapatid po ako sa inc and as of now wala pa pong pasya ang pamamahala namin. maybe, kaanib din po si kuya or maybe hindi? kasi wala naman po sa utos na pwede po kami maki bahagi sa pangangampanya."
+  , "hello pii everyone~ ask ko lang sana if okay na po yung ganitong packaging? wala pa naman yung ggu ggu package ko pero tinry ko lang if kasya 🥲 "
+  , "終わりはないですよ☺️"
+  , "hello kak chita...selamat sore...pengen banget disapa kak chita🥺❤"
+  , "hello, let's be mutual? fb thankyouu!"
+  , "hello, our representative will get in touch with you at the earliest to address your query. kind regards, rbl bank"
+  , "hello"
+  , "thought briefly maybe good omens gabriel and was like well hello then what's this 🤣🤣"
+  ,"hello"
+  ,"hello"
+  ,"hello, thank you for taking our call. we hope your query was resolved. for any further assistance, reach out to us through direct message. kind regards, rbl bank."
+  ,"hello prof. how are you doing. please can we chat on skype?"
+  ,"hello"],
+  "types": [1
+  ,1
+  ,1
+  ,1
+  ,1
+  ,1
+  ,0
+  ,1
+  ,1
+  ,1
+  , 0
+  , 2
+  , 0
+  , 0
+  , 1
+  , 1
+  ,0]};
+  data02 = x.data;
   data02['types'].forEach((element, index) => {
     switch(data02['types'][index]){
       case 0:

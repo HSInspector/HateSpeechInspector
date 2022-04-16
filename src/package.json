@@ -1,0 +1,19 @@
+{
+  "name": "argon-dashboard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm i argon-dashboard-react"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/creativetimofficial/argon-dashboard-react.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/creativetimofficial/argon-dashboard-react/issues"
+  },
+  "homepage": "https://github.com/creativetimofficial/argon-dashboard-react#readme"
+}

@@ -162,7 +162,7 @@ var colors = {
 
 // Chart.js global options
 function chartOptions() {
-  // Options
+//   // Options
   var options = {
     defaults: {
       global: {
@@ -242,6 +242,8 @@ function chartOptions() {
       color: mode === "dark" ? colors.gray[900] : colors.gray[300],
       drawBorder: false,
       drawTicks: false,
+      // position: absolute,
+      // left: '200px',
       lineWidth: 0,
       zeroLineWidth: 0,
       zeroLineColor: mode === "dark" ? colors.gray[900] : colors.gray[300],
@@ -250,6 +252,7 @@ function chartOptions() {
     },
     ticks: {
       beginAtZero: true,
+      
       padding: 10,
       callback: function (value) {
         if (!(value % 10)) {
@@ -286,65 +289,65 @@ function parseOptions(parent, options) {
 }
 
 // Example 1 of Chart inside src/views/Index.js (Sales value - Card)
-// let chartExample1 = {
-//   options: {
-//     scales: {
-//       yAxes: [
-//         {
-//           gridLines: {
-//             color: colors.gray[900],
-//             zeroLineColor: colors.gray[900]
-//           },
-//           ticks: {
-//             callback: function (value) {
-//               if (!(value % 10)) {
-//                 return "$" + value + "k";
-//               }
-//             }
-//           }
-//         }
-//       ]
-//     },
-//     tooltips: {
-//       callbacks: {
-//         label: function (item, data) {
-//           var label = data.datasets[item.datasetIndex].label || "";
-//           var yLabel = item.yLabel;
-//           var content = "";
+let chartExample1 = {
+  options: {
+    scales: {
+      yAxes: [
+        {
+          gridLines: {
+            color: colors.gray[900],
+            zeroLineColor: colors.gray[900]
+          },
+          ticks: {
+            callback: function (value) {
+              if (!(value % 10)) {
+                return "$" + value + "k";
+              }
+            }
+          }
+        }
+      ]
+    },
+    tooltips: {
+      callbacks: {
+        label: function (item, data) {
+          var label = data.datasets[item.datasetIndex].label || "";
+          var yLabel = item.yLabel;
+          var content = "";
 
-//           if (data.datasets.length > 1) {
-//             content += label;
-//           }
+          if (data.datasets.length > 1) {
+            content += label;
+          }
 
-//           content += "$" + yLabel + "k";
-//           return content;
-//         }
-//       }
-//     }
-//   },
-//   data1: (canvas) => {
-//     return {
-//       labels: ["Racism", "Sexism", "Islamophobia", "General Hate", "No Hate"],
-//       datasets: [
-//         {
-//           label: "Hate Speech inspector",
-//           data: [200, 20, 10, 30, 15]
-//         }
-//       ]
-//     };
-//   },
-//   data2: (canvas) => {
-//     return {
-//       labels: ["LMAO", "Sexism", "Islamophobia", "General Hate", "No Hate"],
-//       datasets: [
-//         {
-//           label: "Performance",
-//           data: [0, 20, 5, 25, 10]
-//         }
-//       ]
-//     };
-//   }
-// };
+          content += "$" + yLabel + "k";
+          return content;
+        }
+      }
+    }
+  },
+  data1: (canvas) => {
+    return {
+      labels: ["Racism", "Sexism", "Islamophobia", "General Hate", "No Hate"],
+      datasets: [
+        {
+          label: "Hate Speech inspector",
+          data: [200, 20, 10, 30, 15]
+        }
+      ]
+    };
+  },
+  data2: (canvas) => {
+    return {
+      labels: ["LMAO", "Sexism", "Islamophobia", "General Hate", "No Hate"],
+      datasets: [
+        {
+          label: "Performance",
+          data: [0, 20, 5, 25, 10]
+        }
+      ]
+    };
+  }
+};
 
 // Example 2 of Chart inside src/views/Index.js (Total orders - Card)
 let chartExample2 = {

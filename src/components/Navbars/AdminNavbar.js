@@ -40,7 +40,8 @@ const AdminNavbar = (props) => {
       .then((res) => {
 
         return res.json().then((data) => {
-
+          // console.log(data)
+          // this.setSearchData(data);
           sendSearchedData(data);
         });
       });
@@ -74,7 +75,7 @@ const AdminNavbar = (props) => {
           <Nav className="align-items-center d-none d-md-flex" navbar>
             <UncontrolledDropdown nav>
               <DropdownToggle className="pr-0" nav>
-                <Media className="align-items-center">
+                {/* <Media className="align-items-center">
                   <span className="avatar avatar-sm rounded-circle">
                     <img
                       alt="..."
@@ -89,7 +90,7 @@ const AdminNavbar = (props) => {
                       Taha Ahmad
                     </span>
                   </Media>
-                </Media>
+                </Media> */}
               </DropdownToggle>
               <DropdownMenu className="dropdown-menu-arrow" right>
                 <DropdownItem className="noti-title" header tag="div">

@@ -31,21 +31,16 @@ const Header = () => {
                 <Card className="card-stats mb-4 mb-xl-0">
                   <CardBody>
                     <Row style={{width:"30px",height:"40px"}}>
-                      <h1>TotalTweets</h1>
-                      <h3>350,897</h3>
-                      
-                    </Row>
-                  </CardBody>
-                </Card>
-              </Col>
-              <Col lg="6" xl="3">
-                <Card className="card-stats mb-4 mb-xl-0">
-                  <CardBody>
-                  <Row style={{width:"30px",height:"40px"}}>
                       <h1>Islamophobia</h1>
                       <h3>350,897</h3>
                       
                     </Row>
+                    {/* <p className="mt-3 mb-0 text-muted text-sm">
+                      <span className="text-success mr-2">
+                        <i className="fa fa-arrow-up" /> 3.48%
+                      </span>{" "}
+                      <span className="text-nowrap">Since last month</span>
+                    </p> */}
                   </CardBody>
                 </Card>
               </Col>
@@ -57,6 +52,12 @@ const Header = () => {
                       <h3>350,897</h3>
                       
                     </Row>
+                    {/* <p className="mt-3 mb-0 text-muted text-sm">
+                      <span className="text-danger mr-2">
+                        <i className="fas fa-arrow-down" /> 3.48%
+                      </span>{" "}
+                      <span className="text-nowrap">Since last week</span>
+                    </p> */}
                   </CardBody>
                 </Card>
               </Col>
@@ -68,30 +69,47 @@ const Header = () => {
                       <h3>350,897</h3>
                       
                     </Row>
+                    {/* <p className="mt-3 mb-0 text-muted text-sm">
+                      <span className="text-warning mr-2">
+                        <i className="fas fa-arrow-down" /> 1.10%
+                      </span>{" "}
+                      <span className="text-nowrap">Since yesterday</span>
+                    </p> */}
                   </CardBody>
                 </Card>
               </Col>
-            <Col lg="6" xl="3" style={{marginTop:"40px",marginLeft:"0px"}}>
+              <Col lg="6" xl="3">
+                <Card className="card-stats mb-4 mb-xl-0">
+                  <CardBody>
+                  <Row style={{width:"30px",height:"40px"}}>
+                      <h1>GeneralHate</h1>
+                      <h3>350,897</h3>
+                      
+                    </Row>
+                    {/* <p className="mt-3 mb-0 text-muted text-sm">
+                      <span className="text-success mr-2">
+                        <i className="fas fa-arrow-up" /> 12%
+                      </span>{" "}
+                      <span className="text-nowrap">Since last month</span>
+                    </p> */}
+                  </CardBody>
+                </Card>
+              </Col>
+            <Col lg="6" xl="3" style={{marginTop:"40px",marginLeft:"400px"}}>
                 <Card className="card-stats mb-4 mb-xl-0">
                   <CardBody style={{}}>
                   <Row style={{width:"30px",height:"40px"}}>
-                      <h1>GeneralHate</h1>
+                      <h1>NoHate</h1>
                       <h3>350,897</h3>
 
                       
                     </Row>
-                  </CardBody>
-                </Card>
-              </Col>
-              <Col lg="6" xl="3" style={{marginTop:"40px",marginLeft:"0px"}}>
-                <Card className="card-stats mb-4 mb-xl-0">
-                  <CardBody>
-                  <Row style={{width:"30px",height:"40px"}}>
-                      <h1>NoHate</h1>
-                      <h3>350,897</h3>
-                      
-                    </Row>
-            
+                    {/* <p className="mt-3 mb-0 text-muted text-sm">
+                      <span className="text-success mr-2">
+                        <i className="fas fa-arrow-up" /> 12%
+                      </span>{" "}
+                      <span className="text-nowrap">Since last month</span>
+                    </p> */}
                   </CardBody>
                 </Card>
               </Col>
