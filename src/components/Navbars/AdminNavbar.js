@@ -17,10 +17,13 @@ import {
   Media
 } from "reactstrap";
 import { useState } from "react";
+
 const AdminNavbar = (props) => {
+  const [option, setOption] = useState("None");
   const [searchTerm, setSearchTerm] = useState("");
   var [searchData, setSearchData] = useState()
   const handleChange = (event) => {
+
     setSearchTerm(event.target.value);
   };
   const sendSearchedData = (data)=>{
@@ -62,12 +65,38 @@ const AdminNavbar = (props) => {
           </Link>
           <Form className="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
             <FormGroup className="mb-0">
+    
+              <select
+          name={option}
+          onChange={handleChange}
+          placeholder="Select"
+          style={{
+            height:"50px",
+            width:"200px",
+            backgroundColor: "#0680F5",
+            color: "#FFFF",
+            // textDecoration: "bold",
+            paddingLeft:"25px",
+           marginTop:"0px",
+           marginLeft:"10px",
+           borderRadius:"30px",
+           marginBottom:"3px"
+          }}
+          // name="Select the chart"
+        >
+          <option value="None">None</option>
+          <option value="Search By Username">Search By Username</option>
+          <option value="Search By Keyword">Search By Keyword</option>
+          <option value="Search By Location">Search By Location</option>
+        </select>
+
               <InputGroup className="input-group-alternative">
                 <InputGroupAddon addonType="prepend">
                   <InputGroupText>
                     <i className="fas fa-search" />
                   </InputGroupText>
                 </InputGroupAddon>
+
                 <Input placeholder="Search" type="text" value={searchTerm} onChange={handleChange} onKeyDown={handleKeyDown}/>
               </InputGroup>
             </FormGroup>

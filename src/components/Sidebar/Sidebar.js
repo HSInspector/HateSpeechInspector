@@ -200,6 +200,7 @@ const Sidebar = (props) => {
           {/* Form */}
           <Form className="mt-4 mb-3 d-md-none">
             <InputGroup className="input-group-rounded input-group-merge">
+              {/* <button> Click me!</button> */}
               <Input
                 aria-label="Search"
                 className="form-control-rounded form-control-prepended"
