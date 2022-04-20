@@ -69,13 +69,6 @@ var routes = [{
         component: HelloWorldFile,
         layout: "/admin"
     },
-    {
-        path: "/Profile",
-        name: "Search by Username",
-        icon: "ni ni-planet text-blue",
-        component: Search_By_Username,
-        layout: "/auth"
-    },
 //Find file first from examples then from components
     {
         path: "/HelloWorld",

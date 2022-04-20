@@ -23,7 +23,7 @@ function ShowChart(props) {
     }
   }
   else{
-    return <h1>hello showchart</h1>;
+    return <h1>Please select a Chart type</h1>;
   }
 }
 // if rdar graph then bar chart

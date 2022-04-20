@@ -26,6 +26,11 @@ const AdminNavbar = (props) => {
 
     setSearchTerm(event.target.value);
   };
+
+  const handleOptionChange = (event) =>{
+    setOption(event.target.value);
+  };
+  
   const sendSearchedData = (data)=>{
     // console.log(searchData);
     props.parentCallback(data);
@@ -68,7 +73,7 @@ const AdminNavbar = (props) => {
     
               <select
           name={option}
-          onChange={handleChange}
+          onChange={handleOptionChange}
           placeholder="Select"
           style={{
             height:"50px",
@@ -84,9 +89,8 @@ const AdminNavbar = (props) => {
           }}
           // name="Select the chart"
         >
-          <option value="None">None</option>
-          <option value="Search By Username">Search By Username</option>
           <option value="Search By Keyword">Search By Keyword</option>
+          <option value="Search By Username">Search By Username</option>
           <option value="Search By Location">Search By Location</option>
         </select>
 

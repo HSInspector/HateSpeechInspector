@@ -55,7 +55,7 @@ const Footer = () => {
     //     </Col>
     //   </Row>
     // </footer>
-    <h1>Hello WOrld with Taha Ahmad </h1>
+    <h1></h1>
     );
 };
 
