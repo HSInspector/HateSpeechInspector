@@ -19,7 +19,7 @@ function ShowChart(props) {
     } else if (props.value === "Pie Chart") {
       return <PieChart data={props.data}/>;
     } else if (props.value == "None"){
-      return <h1>hello showchart</h1>;
+      return <h1>Please select a Chart type</h1>;
     }
   }
   else{

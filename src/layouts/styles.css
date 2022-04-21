@@ -82,7 +82,7 @@
   
   .card-title {
     font-family: "Cormorant Garamond", serif;
-    font-size: 60px;
+    font-size: 30px;
     font-weight: 300;
     line-height: 60px;
     margin: 10px 0;
@@ -91,6 +91,7 @@
   
   .card-description {
     /* display: inline-block; */
+    font-size: 20px;
     font-weight: 300;
     line-height: 22px;
     margin: 10px 0;

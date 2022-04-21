@@ -1,6 +1,5 @@
 const Menu = [{
         id: 1,
-        image: "images/maggi.jpg",
         name: "sherry30",
         category: "Islamophobia",
         description: "Tweet:----",
@@ -8,7 +7,6 @@ const Menu = [{
 
     {
         id: 2,
-        image: "images/allupakoida.jpg",
         name: "tah139",
         category: "Racism",
         
@@ -16,7 +14,6 @@ const Menu = [{
     },
     {
         id: 3,
-        image: "images/corn.jpg",
         name: "har20",
         category: "Sexism",
      
@@ -24,7 +21,6 @@ const Menu = [{
     },
     {
         id: 4,
-        image: "../images/chola.jpg",
         name: "hamza21",
         category: "General Hate",
 

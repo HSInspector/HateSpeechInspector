@@ -2,48 +2,78 @@ import React,{useState} from "react";
 import "./styles.css";
 import Menu from "./API";
 import HandleContainer from "./HandleContainer";
-function Cards()
+import { useLocation } from "react-router-dom";
+
+function Cards(props)
 {
     
-    const [MenuData,setData]=useState(Menu);
+    
+    let location = useLocation();
+    const [TweetData, setTweetData] = useState(location.state.data);
+    // console.log(TweetData);
+    let converted_data = [];
+    for (let i = 0; i < TweetData.tweets.length; i++) {
+        let temp = {id: i,
+            name: "temp",
+            category: getCategory(TweetData.types[i]),
+            description: TweetData.tweets[i]
+        };
+        converted_data.push(temp);
+      }
+    console.log(converted_data);
+    const [MenuData,setData]=useState(converted_data);
     const [MenuData1,setData1]=useState(MenuData);
 
-    function handleChange(Event)
-    {
-            // const username1=Event.target.value;
-            // console.log("Change value is"+username1);
-
-            // alert("The value of the input is "+Event.target.value);
+    function getCategory(label){
+        switch(label){
+            case 0:
+              return "No_Hate";
+            case 1:
+              return "General";
+            case 2:
+              return "Racism";
+            case 3:
+              return "Sexism"
+            case 4:
+              return "Islamophobia";
+      
+          }
     }
+
     function handleClick(Event)
     {
         
         
-        console.log(MenuData);
+        // console.log(MenuData);
        const name=Event.target.name;
 
        if(name==="all")
        {
-           setData1(Menu);
+           setData1(converted_data);
        }else{
 
         const updated=MenuData.filter((currentElement,index)=>{
             return currentElement.category===name;
            })
-          
-    
-           
+
            setData1(updated);
-           console.log(updated);
+        //    console.log(updated);
        }
     }
+
+    function handleDataChange(){
+        console.log('menu changed')
+    }
     
-    function handleCard(currEle)
+    
+    function HandleCard(props)
     {
+        
+        const currEle = props.value
         return (
             <>
                
-             <HandleContainer currEle={currEle} />
+             <HandleContainer currEle={currEle} onChange={handleDataChange}/>
             
             </>
           
@@ -51,7 +81,11 @@ function Cards()
              );
 
     }
-    
+
+    const listItems = MenuData1.map((currEle) =>
+    <HandleCard key={currEle.id} value={currEle}/>
+    )
+
 
    return (
     <>
@@ -63,14 +97,14 @@ function Cards()
                         <button onClick={handleClick} name="Racism" className="btn-group__item">Racism</button>
                         <button  onClick={handleClick} name="Sexism" className="btn-group__item">Sexism</button>
                         <button onClick={handleClick}  name="General Hate" className="btn-group__item">General Hate</button>
-                        <button onClick={handleClick}  name="No-Hate" className="btn-group__item">No-Hate</button>                        
+                        <button onClick={handleClick}  name="No-Hate" className="btn-group__item">No-Hate</button>
                         <button onClick={handleClick} name="all" className="btn-group__item">All</button>
 
-                        <input type="text" onChange={handleChange} name="username" placeholder="Search by username"></input>
+                        {/* <input type="text" onChange={handleChange} name="username" placeholder="Search by username"></input> */}
                     </div>
                 </nav>
       <section className="main-card--cointainer">
-                     {MenuData1.map(handleCard)}
+                     {listItems}
         </section>
         
     </>

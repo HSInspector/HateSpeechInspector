@@ -56,7 +56,9 @@ const Sidebar = (props) => {
       return (
         <NavItem key={key}>
           <NavLink
-            to={prop.layout + prop.path}
+            to={{pathname:prop.layout + prop.path,
+            state: {data: props.data}
+          }}
             tag={NavLinkRRD}
             onClick={closeCollapse}
             activeClassName="active"
@@ -69,7 +71,7 @@ const Sidebar = (props) => {
     });
   };
 
-  const { bgColor, routes, logo } = props;
+  const { bgColor, routes, logo} = props;
   let navbarBrandProps;
   if (logo && logo.innerLink) {
     navbarBrandProps = {

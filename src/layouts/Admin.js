@@ -85,6 +85,7 @@ const Admin = (props) => {
           imgSrc: require("../assets/img/brand/argon-react.png").default,
           imgAlt: "...",
         }}
+        data={searchedData}
       />
       <div className="main-content" ref={mainContent}>
         <AdminNavbar
