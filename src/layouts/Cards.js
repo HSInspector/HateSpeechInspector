@@ -14,7 +14,7 @@ function Cards(props)
     let converted_data = [];
     for (let i = 0; i < TweetData.tweets.length; i++) {
         let temp = {id: i,
-            name: "temp",
+            name: TweetData.username[i],
             category: getCategory(TweetData.types[i]),
             description: TweetData.tweets[i]
         };
@@ -27,9 +27,9 @@ function Cards(props)
     function getCategory(label){
         switch(label){
             case 0:
-              return "No_Hate";
+              return "No-Hate";
             case 1:
-              return "General";
+              return "General Hate";
             case 2:
               return "Racism";
             case 3:

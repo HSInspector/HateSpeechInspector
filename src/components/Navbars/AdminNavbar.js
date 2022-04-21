@@ -19,9 +19,9 @@ import {
 import { useState } from "react";
 
 const AdminNavbar = (props) => {
-  const [option, setOption] = useState("None");
+  const [option, setOption] = useState("Keyword");
   const [searchTerm, setSearchTerm] = useState("");
-  var [searchData, setSearchData] = useState()
+  var [searchData, setSearchData] = useState();
   const handleChange = (event) => {
 
     setSearchTerm(event.target.value);
@@ -29,6 +29,7 @@ const AdminNavbar = (props) => {
 
   const handleOptionChange = (event) =>{
     setOption(event.target.value);
+
   };
   
   const sendSearchedData = (data)=>{
@@ -43,6 +44,7 @@ const AdminNavbar = (props) => {
         method: "POST",
         body: JSON.stringify({
           content: searchTerm,
+          option: option
         }),
       })
       .then((res) => {
@@ -89,9 +91,9 @@ const AdminNavbar = (props) => {
           }}
           // name="Select the chart"
         >
-          <option value="Search By Keyword">Search By Keyword</option>
-          <option value="Search By Username">Search By Username</option>
-          <option value="Search By Location">Search By Location</option>
+          <option value="Keyword">Search By Keyword</option>
+          <option value="Username">Search By Username</option>
+          <option value="Location">Search By Location</option>
         </select>
 
               <InputGroup className="input-group-alternative">
