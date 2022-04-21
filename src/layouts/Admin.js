@@ -72,6 +72,7 @@ const Admin = (props) => {
     }
     return "Dashboard";
   };
+  
 
   const handleCallback = (searchData) =>{
     if(location.state)

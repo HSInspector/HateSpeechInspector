@@ -83,7 +83,7 @@ var routes = [{
         name: "View all Tweets",
         icon: "ni ni-bullet-list-67 text-red",
         component: Profile,
-        layout: "/auth",
+        layout: "/viewalltweets",
         
     },
     {
