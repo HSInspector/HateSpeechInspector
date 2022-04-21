@@ -16,7 +16,7 @@
 
 */
 import React from "react";
-import { useLocation, Route, Switch, Redirect } from "react-router-dom";
+import { useLocation, Route, Switch, Redirect} from "react-router-dom";
 // reactstrap components
 import { Container, Row, Col } from "reactstrap";
 
@@ -25,12 +25,45 @@ import Cards from "./Cards";
 // core components
 import AuthNavbar from "components/Navbars/AuthNavbar.js";
 import AuthFooter from "components/Footers/AuthFooter.js";
-
+import AdminNavbar from "components/Navbars/AdminNavbar.js";
 import routes from "routes.js";
+import Sidebar from "components/Sidebar/Sidebar";
 
 const Auth = (props) => {
   const mainContent = React.useRef(null);
-  const location = useLocation();
+  let location = useLocation();
+  const [TweetData, setTweetData] = React.useState(location.state.data);
+  let converted_data = [];
+    // console.log(TweetData);
+    React.useEffect(() => {
+      for (let i = 0; i < TweetData.tweets.length; i++) {
+        let temp = {id: i,
+            name: TweetData.username[i],
+            category: getCategory(TweetData.types[i]),
+            description: TweetData.tweets[i]
+        };
+        converted_data.push(temp);
+    }
+    console.log(converted_data);
+
+    function getCategory(label){
+      switch(label){
+          case 0:
+            return "No-Hate";
+          case 1:
+            return "General Hate";
+          case 2:
+            return "Racism";
+          case 3:
+            return "Sexism"
+          case 4:
+            return "Islamophobia";
+    
+      }
+    }  
+    })
+    
+    
 
   React.useEffect(() => {
     document.body.classList.add("bg-default");
@@ -60,21 +93,41 @@ const Auth = (props) => {
     });
   };
 
+  const handleCallback = (searchData) =>{
+    location.state.data=searchData;
+    setTweetData(searchData);
+    console.log("Data recieved");
+  }
+
   return (
     <>
+    <Sidebar
+        {...props}
+        routes={routes}
+        logo={{
+          innerLink: "/admin/index",
+          imgSrc: require("../assets/img/brand/argon-react.png").default,
+          imgAlt: "...",
+        }}
+        data={TweetData}
+      />
       <div className="main-content" ref={mainContent}>
-        <AuthNavbar />
+      <AdminNavbar
+          {...props}
+          // brandText={getBrandText(props.location.pathname)}
+          parentCallback = {handleCallback}
+        />
         <div className="header bg-gradient-info py-7 py-lg-8">
           <Container>
             <div className="header-body text-center mb-7">
               <Row className="justify-content-center">
                 <Col lg="5" md="6">
-                  <h1 className="text-white">HS Tweet Categorization</h1>
+                  <h1 className="text-white">View Searched Tweets</h1>
                   
                 </Col>
               </Row>
             </div>
-      <div></div>     
+            <Cards value={converted_data}/>
           </Container>
           <div className="separator separator-bottom separator-skew zindex-100">
             <svg
@@ -93,19 +146,21 @@ const Auth = (props) => {
           </div>
         </div>
         {/* Page content */}
-        <Container className="mt--8 pb-5">
+        {/* <Container className="mt--8 pb-5">
           <Row className="justify-content-center">
             <Switch>
               {getRoutes(routes)}
               <Redirect from="*" to="/auth/login" />
             </Switch>
           </Row>
-        </Container>
+        </Container> */}
       </div>
-      <AuthFooter />
-
-
-      <Cards/>
+      {/* <AuthFooter /> */}
+{/* 
+      <Container>
+          <Cards value={converted_data}/>
+      </Container> */}
+      
     </>
   );
 };

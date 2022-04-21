@@ -59,6 +59,7 @@ const Sidebar = (props) => {
             to={{pathname:prop.layout + prop.path,
             state: {data: props.data}
           }}
+            
             tag={NavLinkRRD}
             onClick={closeCollapse}
             activeClassName="active"

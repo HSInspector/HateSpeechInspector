@@ -67,7 +67,8 @@ var routes = [{
         name: "Dashboard",
         icon: "ni ni-tv-2 text-primary",
         component: HelloWorldFile,
-        layout: "/admin"
+        layout: "/admin",
+        
     },
 //Find file first from examples then from components
     {
@@ -79,7 +80,7 @@ var routes = [{
     },
     {
         path: "/Profile",
-        name: "View with Time Filter",
+        name: "View all Tweets",
         icon: "ni ni-bullet-list-67 text-red",
         component: Profile,
         layout: "/auth",

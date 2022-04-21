@@ -32,13 +32,19 @@ const Admin = (props) => {
   const location = useLocation();
   const [searchedData, setSearchedData] = React.useState();
   const [termSearched, setTermSearched] = React.useState(false);
+  // console.log(location.state.data);
 
   React.useEffect(() => {
     document.documentElement.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
     mainContent.current.scrollTop = 0;
   }, [location]);
-
+  React.useEffect(() => {
+    if (location.state){
+      setSearchedData(location.state.data);
+      setTermSearched(true);
+    }
+  })
   const getRoutes = (routes) => {
     return routes.map((prop, key) => {
       if (prop.layout === "/admin") {
@@ -68,8 +74,8 @@ const Admin = (props) => {
   };
 
   const handleCallback = (searchData) =>{
-    // console.log(searchData);
-    // childRef.current.displayChart();
+    if(location.state)
+      location.state.data=searchData;
     setSearchedData(searchData);
     setTermSearched(true);
     console.log("Data recieved");
