@@ -2,6 +2,7 @@ import { useState } from "react";
 import { NavLink as NavLinkRRD, Link } from "react-router-dom";
 // nodejs library to set properties for components
 import { PropTypes } from "prop-types";
+import "../../layouts/styles.css";
 
 // reactstrap components
 import {
@@ -59,7 +60,7 @@ const Sidebar = (props) => {
             to={{pathname:prop.layout + prop.path,
             state: {data: props.data}
           }}
-            
+
             tag={NavLinkRRD}
             onClick={closeCollapse}
             activeClassName="active"
@@ -103,13 +104,13 @@ const Sidebar = (props) => {
         </button>
         {/* Brand */}
         {logo ? (
-          <NavbarBrand className="pt-0" {...navbarBrandProps}>
+          <Row className="photo" >
             <img
               alt={logo.imgAlt}
-              className="navbar-brand-img"
+              className="logo_photo"
               src={logo.imgSrc}
             />
-          </NavbarBrand>
+          </Row>
         ) : null}
         {/* User */}
         <Nav className="align-items-center d-md-none">
@@ -179,11 +180,11 @@ const Sidebar = (props) => {
                 <Col className="collapse-brand" xs="6">
                   {logo.innerLink ? (
                     <Link to={logo.innerLink}>
-                      <img alt={logo.imgAlt} src={logo.imgSrc} />
+                      <img alt={logo.imgAlt} src={logo.imgSrc} className="photo"/>
                     </Link>
                   ) : (
                     <a href={logo.outterLink}>
-                      <img alt={logo.imgAlt} src={logo.imgSrc} />
+                      <img alt={logo.imgAlt} src={logo.imgSrc} className="photo"/>
                     </a>
                   )}
                 </Col>

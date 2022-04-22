@@ -24,6 +24,15 @@
     color: #aaa;
   }
   
+  .photo{
+    height: 170px;
+    width: 100px;
+  }
+  .logo_photo{
+    margin-left: 10px;
+    height: 170px;
+    width: 170px;
+  }
   .main-card--cointainer {
     display: grid;
     grid-template-columns: repeat(3, minmax(300px, 500px));

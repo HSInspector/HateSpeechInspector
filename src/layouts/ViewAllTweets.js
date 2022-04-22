@@ -64,7 +64,6 @@ const ViewAllTweets = (props) => {
     }  
     })
     
-    
 
   React.useEffect(() => {
     document.body.classList.add("bg-default");
@@ -112,7 +111,7 @@ function rowClick(n) {
         routes={routes}
         logo={{
           innerLink: "/admin/index",
-          imgSrc: require("../assets/img/brand/argon-react.png").default,
+          imgSrc: require("../assets/img/brand/HSlogo.png").default,
           imgAlt: "...",
         }}
         data={TweetData}
@@ -133,9 +132,9 @@ function rowClick(n) {
                 </Col>
               </Row>
             </div>
-            <table>
+            {/* <table>
                 <tbody>
-                    <tr onClick={this.rowClick}>
+                    <tr onClick={rowClick}>
                     <td>
                     <div>main row - onclick toggle the rows under</div></td>
                     <td></td>
@@ -150,7 +149,8 @@ function rowClick(n) {
                     <td></td>
                     </tr>
                 </tbody>
-            </table>
+            </table> */}
+            <h1> View all tweets</h1>
           </Container>
           <div className="separator separator-bottom separator-skew zindex-100">
             <svg
