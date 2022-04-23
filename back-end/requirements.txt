@@ -2,4 +2,8 @@ flask
 gunicorn
 flask-cors
 torch
-transformer
+transformers
+twint
+keras
+tensorflow
+sentencepiece

@@ -1,7 +1,7 @@
 import transformers
 from transformers import XLNetTokenizer, XLNetModel, AdamW, get_linear_schedule_with_warmup
 import torch
-import tensorflow
+# import tensorflow
 import numpy as np
 import pandas as pd
 from torch import nn, optim
@@ -72,6 +72,6 @@ class Model():
         # print(f'actual  : {[actual]}')
 
 
-# model = Model()
-# model.load_model('trained_model/xlnet_model3.bin')
-# model.predict_tweet('islam is good')
+model = Model()
+model.load_model('trained_model/xlnet_model4.bin')
+model.predict_tweet('islam is good')
