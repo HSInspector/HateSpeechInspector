@@ -70,7 +70,7 @@ function Cards(props)
                 <button  onClick={handleClick} name="Sexism" className="btn-group__item">Sexism</button>
                 <button onClick={handleClick}  name="General Hate" className="btn-group__item">General Hate</button>
                 <button onClick={handleClick}  name="No-Hate" className="btn-group__item">No-Hate</button>
-                <button onClick={handleClick} name="all" className="btn-group__item">All</button>
+                <button onClick={handleClick} name="all" className="btn-group__item">View All</button>
 
                 {/* <input type="text" onChange={handleChange} name="username" placeholder="Search by username"></input> */}
             </div>

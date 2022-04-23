@@ -2,3 +2,4 @@ node_modules
 venv
 __pycahche__
 .virtualenvs
+trained_model

@@ -61,7 +61,7 @@ data01[3]['x'] = Sexism
 data01[4]['x'] = Islamophobia
 
   return (
-    <RadarChart height={500} width={500} outerRadius="80%" data={data01}>
+    <RadarChart height={600} width={600} outerRadius="80%" data={data01}>
       <PolarGrid />
       <PolarAngleAxis dataKey="Label" />
       <PolarRadiusAxis />

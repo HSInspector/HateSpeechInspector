@@ -93,7 +93,6 @@ const AdminNavbar = (props) => {
         >
           <option value="Keyword">Search By Keyword</option>
           <option value="Username">Search By Username</option>
-          <option value="Location">Search By Location</option>
         </select>
 
               <InputGroup className="input-group-alternative">

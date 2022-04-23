@@ -78,21 +78,21 @@ var routes = [{
         component: HelloWorldFile,
         layout: "/auth"
     },
-    {
-        path: "/Profile",
-        name: "View all Tweets",
-        icon: "ni ni-bullet-list-67 text-red",
-        component: Profile,
-        layout: "/viewalltweets",
+    // {
+    //     path: "/Profile",
+    //     name: "View all Tweets",
+    //     icon: "ni ni-bullet-list-67 text-red",
+    //     component: Profile,
+    //     layout: "/viewalltweets",
         
-    },
-    {
-        path: "/Tables",
-        name: "Download Report",
-        icon: "ni ni-key-25 text-info",
-        component: Tables,
-        layout: "/auth"
-    },
+    // },
+    // {
+    //     path: "/Tables",
+    //     name: "Download Report",
+    //     icon: "ni ni-key-25 text-info",
+    //     component: Tables,
+    //     layout: "/auth"
+    // },
 
     {
         path: "/icons",
@@ -100,28 +100,28 @@ var routes = [{
         icon: "ni ni-planet text-blue",
         component: UserHeader,
         layout: "/admin"
-    },
-    {
-        path: "/icons",
-        name: "Draw Pie Chart",
-        icon: "ni ni-planet text-blue",
-        component: UserHeader,
-        layout: "/admin"
-    },
-    {
-        path: "/icons",
-        name: "Show Timeline",
-        icon: "ni ni-planet text-blue",
-        component: UserHeader,
-        layout: "/admin"
-    },
-    {
-        path: "/icons",
-        name: "Show Radar Chart",
-        icon: "ni ni-planet text-blue",
-        component: UserHeader,
-        layout: "/admin"
     }
+    // {
+    //     path: "/icons",
+    //     name: "Draw Pie Chart",
+    //     icon: "ni ni-planet text-blue",
+    //     component: UserHeader,
+    //     layout: "/admin"
+    // },
+    // {
+    //     path: "/icons",
+    //     name: "Show Timeline",
+    //     icon: "ni ni-planet text-blue",
+    //     component: UserHeader,
+    //     layout: "/admin"
+    // },
+    // {
+    //     path: "/icons",
+    //     name: "Show Radar Chart",
+    //     icon: "ni ni-planet text-blue",
+    //     component: UserHeader,
+    //     layout: "/admin"
+    // }
   
 ];
 

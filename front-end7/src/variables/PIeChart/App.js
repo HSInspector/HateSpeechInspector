@@ -1,6 +1,6 @@
 import "./styles.css";
 import React from "react";
-import { PieChart, Pie, Legend, Tooltip } from "recharts";
+import { PieChart, Pie, Legend, Tooltip, Cell} from "recharts";
 
 
 
@@ -77,26 +77,48 @@ function App(x) {
 
     }
   });
+  const RADIAN = Math.PI / 180;
+  const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
+    const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+    const x = cx + radius * Math.cos(-midAngle * RADIAN);
+    const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
+    return (
+      <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
+        {`${(percent * 100).toFixed(0)}%`}
+      </text>
+    );
+  };
+  const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#FF6066'];
   
-data01[0]['value'] = No_Hate
-data01[1]['value'] = General
-data01[2]['value'] = Racism
-data01[3]['value'] = Sexism
-data01[4]['value'] = Islamophobia
+  data01[0]['value'] = No_Hate
+  data01[1]['value'] = General
+  data01[2]['value'] = Racism
+  data01[3]['value'] = Sexism
+  data01[4]['value'] = Islamophobia
   return (
-    <PieChart width={1000} height={400}>
+    
+    <PieChart width={1000} height={1000}>
       <Pie
         dataKey="value"
-        isAnimationActive={false}
+        isAnimationActive={true}
         data={data01}
-        cx={200}
-        cy={200}
-        outerRadius={80}
+        labelLine={true}
+        cx={450}
+        cy={180}
+        outerRadius={100}
         fill="#8884d8"
         label
-      />
-
+        // label={renderCustomizedLabel}
+        >
+          {
+          data01.map((entry, index) => <Cell fill={COLORS[index % COLORS.length]}/>)
+        }
+        </Pie>
+        
+      
+      
+      <Legend layout="horizontal" verticalAlign="top" align="center" />
       <Tooltip />
     </PieChart>
   );
