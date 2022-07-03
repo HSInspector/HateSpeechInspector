@@ -1,11 +1,11 @@
 import transformers
 from transformers import XLNetTokenizer, XLNetModel, AdamW, get_linear_schedule_with_warmup
 import torch
-# import tensorflow
+import tensorflow as tf
 import numpy as np
 import pandas as pd
 from torch import nn, optim
-from keras.preprocessing.sequence import pad_sequences
+from keras_preprocessing.sequence import pad_sequences
 from torch.utils.data import TensorDataset,RandomSampler,SequentialSampler
 from torch.utils.data import Dataset, DataLoader
 import torch.nn.functional as F
@@ -24,7 +24,7 @@ class Model():
     def load_model(self, path='xlnet-base-cased'):
         self.model = XLNetForSequenceClassification.from_pretrained('./trained_model/xlnet-base-cased', local_files_only = True, num_labels = 5)
         self.model = self.model.to(self.device)
-        self.tokenizer = XLNetTokenizer.from_pretrained('./trained_model/xlnet-base-cased', local_files_only = True)
+        self.tokenizer = XLNetTokenizer.from_pretrained('./trained_model/xlnet-base-cased/', local_files_only = True)
         self.model.load_state_dict(torch.load(path, map_location=torch.device('cpu')))
 
     def predict_tweet(self, tweet):

@@ -43,6 +43,7 @@ class HSInspector():
         self.c.Limit= 10
         self.c.Hide_output = True
         self.c.Pandas=True
+        
         self.c.Search = keyword
         v = twint.run.Search(self.c)
         return twint.storage.panda.Tweets_df

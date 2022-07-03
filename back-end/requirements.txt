@@ -1,8 +1,17 @@
 flask
+flask-restful
 gunicorn
 flask-cors
 torch
 transformers
+chardet
+nose
+tox
+Cython
+pylint
+wheel
+twine
+autopep8
 twint
 keras
 tensorflow
