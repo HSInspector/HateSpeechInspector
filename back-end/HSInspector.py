@@ -5,12 +5,14 @@ import pandas as pd
 import re
 from Model import Model
 
+# main class
 class HSInspector():
     def __init__(self) -> None:
         self.tweet_predictions = Tweet_prediction()
         self.model = Model()
         self.model.load_model('./trained_model/xlnet_model4.bin')
 
+    # searching thourgh a keyword
     def searchTweets(self, keyword):
         df = self.scrapeTweetsByKeyword(keyword=keyword)
         self.tweet_predictions.get_tweets(df)
@@ -20,11 +22,9 @@ class HSInspector():
             types.append(self.model.predict_tweet(self.tweet_predictions.tweets[i].tweet))
         self.tweet_predictions.updatePredictions(types)
         js = self.tweet_predictions.to_json(username=df['username'].tolist())
-        # js.update({'username': df['username'].tolist()})
         return js
-        # print(js)
-        # self.tweet_predictions.print_tweets()
 
+    # search through username
     def searchTweetsByUsername(self, username):
         df = self.scrapeTweetsByUseraname(username=username)
         self.tweet_predictions.get_tweets(df)
@@ -36,7 +36,7 @@ class HSInspector():
         js = self.tweet_predictions.to_json(username=df['username'].tolist())
         return js
 
-
+    # scrape tweets using twint by keyword
     def scrapeTweetsByKeyword(self, keyword="Hello"):
         self.c = twint.Config()
         self.c.Lang = "english"
@@ -48,6 +48,7 @@ class HSInspector():
         v = twint.run.Search(self.c)
         return twint.storage.panda.Tweets_df
 
+    # scrape tweets using twint by username
     def scrapeTweetsByUseraname(self, username):
         self.c = twint.Config()
         self.c.Lang = "english"
@@ -58,6 +59,7 @@ class HSInspector():
         v = twint.run.Search(self.c)
         return twint.storage.panda.Tweets_df
 
+    # clean tweets
     def clean_tweets(self):
         cleaned_tweets = []
         for i in range(self.tweet_predictions.size):

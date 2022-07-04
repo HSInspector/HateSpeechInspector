@@ -1,5 +1,5 @@
 import enum
-
+# enum for types
 class hate_speech_type(enum.Enum):
     none = -1
     non_hate_speech = 0

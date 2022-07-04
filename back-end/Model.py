@@ -12,6 +12,7 @@ import torch.nn.functional as F
 from transformers import XLNetForSequenceClassification
 from hate_speech_type import hate_speech_type
 
+# Model class for making predictions
 class Model():
     def __init__(self) -> None:
         RANDOM_SEED = 42
@@ -21,12 +22,14 @@ class Model():
         self.MAX_LEN=128
         print(self.device)
         
+    # loading model using path of trained weights
     def load_model(self, path='xlnet-base-cased'):
         self.model = XLNetForSequenceClassification.from_pretrained('./trained_model/xlnet-base-cased', local_files_only = True, num_labels = 5)
         self.model = self.model.to(self.device)
         self.tokenizer = XLNetTokenizer.from_pretrained('./trained_model/xlnet-base-cased/', local_files_only = True)
         self.model.load_state_dict(torch.load(path, map_location=torch.device('cpu')))
 
+    # making a prediction against a tweet
     def predict_tweet(self, tweet):
     
         review_text = tweet
@@ -59,17 +62,7 @@ class Model():
         probs = F.softmax(outputs, dim=-1).cpu().detach().numpy().tolist()
         _, prediction = torch.max(outputs, dim =-1)
 
-        # print("non hate:", probs[0])
-        # print("hate:", probs[1])
-        # print("racism:", probs[2])
-        # print("sexism:", probs[3])
-        # print("islamophobia:", probs[4])
-        # print('prediction: ', hate_speech_type(prediction.item()))
         return hate_speech_type(prediction.item())
-        # print()
-        # print(f' text: {review_text}')
-        # print(f'type  : {[prediction]}')
-        # print(f'actual  : {[actual]}')
 
 
 model = Model()

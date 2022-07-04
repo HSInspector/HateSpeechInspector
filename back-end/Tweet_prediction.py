@@ -2,19 +2,23 @@ from Tweet import Tweet
 from hate_speech_type import hate_speech_type
 import json
 
+# stores collected tweets against predictions
 class Tweet_prediction():
     def __init__(self) -> None:
         self.tweets = []
         self.size = 0
 
+    # updating tweets
     def updateCleanedTweets(self, tweets):
         for i in range(len(self.tweets)):
             self.tweets[i].set_tweet(tweets[i])
     
+    # updating predictions
     def updatePredictions(self, preds):
         for i in range(len(self.tweets)):
             self.tweets[i].set_type(preds[i])
 
+    # returns tweets from a given DataFrame
     def get_tweets(self, df):
         self.tweets = []
         tweets = df['tweet']
@@ -28,6 +32,7 @@ class Tweet_prediction():
         for i in range(len(self.tweets)):
             print("tweet: ", self.tweets[i].tweet, " predicted: ", self.tweets[i].type)
 
+    # return in JSON form 
     def to_json(self, **extra_params):
         tweets = []
         types = []

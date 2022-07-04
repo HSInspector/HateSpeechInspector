@@ -1,15 +1,17 @@
+#importing necessary libraries
 import os
 import time
-# import Test
-
 from flask_cors import CORS #comment this on deployment
 from flask import Flask, request, jsonify, json
 from HSInspector import HSInspector
 from flask_restful import Api, Resource, reqparse
+
+
 app = Flask(__name__)
 CORS(app) #comment this on deployment
 api = Api(app)
 
+#routes
 app = Flask(__name__, static_url_path='', static_folder='frontend/build')
 @app.route('/members', methods=['GET'])
 def members():

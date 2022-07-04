@@ -1,5 +1,6 @@
 from hate_speech_type import hate_speech_type
 
+# stores a single tweet against prediction
 class Tweet():
     def __init__(self, tweet: str="",type: hate_speech_type=hate_speech_type.none ) -> None:
         self.tweet = tweet
